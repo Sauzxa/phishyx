@@ -285,9 +285,10 @@
   justify-content: center;
 }
 
-.ig-meta-svg {
+.ig-meta-logo {
   width: 80px;
-  height: 22px;
+  height: auto;
+  opacity: 0.6;
 }
 
 /* ─── Footer ─────────────────────────────────────────────── */

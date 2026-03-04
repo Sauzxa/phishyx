@@ -4,6 +4,7 @@ import { loginApi } from './api'
 
 import instagramLogo from '../assets/instagramLogoDarkWithoutBack.png'
 import leftImage from '../assets/left.png'
+import metaLogo from '../assets/metaLogoWihoutBck.png'
 
 function App() {
   const [username, setUsername] = useState('')
@@ -109,13 +110,9 @@ function App() {
               Create new account
             </button>
 
-            {/* Meta logo as inline SVG text */}
+            {/* Meta logo */}
             <div className="ig-meta-wrap">
-              <svg className="ig-meta-svg" viewBox="0 0 80 20" xmlns="http://www.w3.org/2000/svg">
-                <text x="0" y="16" fontFamily="-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial" fontSize="14" fill="#888" fontWeight="500">
-                  &#x221E; Meta
-                </text>
-              </svg>
+              <img src={metaLogo} alt="Meta" className="ig-meta-logo" />
             </div>
           </div>
         </section>
