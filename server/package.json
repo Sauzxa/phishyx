@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon",
     "build": "tsc -p tsconfig.json",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "configure": "tsx src/cli/configure.ts"
   },
   "dependencies": {
     "cors": "^2.8.6",
