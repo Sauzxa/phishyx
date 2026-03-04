@@ -85,6 +85,40 @@
   align-items: center;
 }
 
+/* ─── Error Banner ───────────────────────────────────────── */
+.ig-error-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 16px;
+  background-color: #1c1c1c;
+  border: 1px solid #3a2a1a;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.ig-error-icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.ig-error-text {
+  font-size: 0.9rem;
+  color: #cccccc;
+  line-height: 1.45;
+}
+
+.ig-error-link {
+  color: #4a9eff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ig-error-link:hover {
+  text-decoration: underline;
+}
+
 /* ─── Login Header (back arrow + title) ──────────────────── */
 .ig-login-header {
   display: flex;

