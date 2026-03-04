@@ -1,0 +1,332 @@
+/* ─── Reset ─────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* ─── Root ───────────────────────────────────────────────── */
+.ig-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #0a0a0a;
+  color: #f5f5f5;
+}
+
+/* ─── Body: two-column full-height ───────────────────────── */
+.ig-body {
+  display: flex;
+  flex: 1;
+  min-height: calc(100vh - 72px);
+}
+
+/* ─── Left Panel ─────────────────────────────────────────── */
+.ig-left {
+  flex: 0 0 58%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 48px 64px 48px 72px;
+  background-color: #0a0a0a;
+  position: relative;
+}
+
+.ig-logo {
+  width: 86px;
+  height: 86px;
+  object-fit: contain;
+  margin-bottom: 32px;
+}
+
+.ig-tagline {
+  font-size: 2.75rem;
+  font-weight: 700;
+  line-height: 1.18;
+  color: #ffffff;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  max-width: 380px;
+}
+
+.ig-tagline-gradient {
+  background: linear-gradient(90deg, #f9a826 0%, #f56040 40%, #e1306c 70%, #c13584 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ig-collage {
+  width: 100%;
+  max-width: 460px;
+  object-fit: contain;
+  border-radius: 6px;
+  align-self: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/* ─── Right Panel ────────────────────────────────────────── */
+.ig-right {
+  flex: 0 0 42%;
+  background-color: #12182b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+}
+
+.ig-right-inner {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ─── Login Header (back arrow + title) ──────────────────── */
+.ig-login-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+  margin-bottom: 28px;
+}
+
+.ig-back-btn {
+  background: transparent;
+  border: none;
+  color: #c0c0c0;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.ig-back-btn:hover {
+  color: #ffffff;
+}
+
+.ig-login-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.01em;
+}
+
+/* ─── Form ───────────────────────────────────────────────── */
+.ig-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 18px;
+}
+
+.ig-input {
+  width: 100%;
+  padding: 15px 22px;
+  background-color: #1c2540;
+  border: 1px solid #2e3a58;
+  border-radius: 10px;
+  color: #e8e8e8;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.ig-input::placeholder {
+  color: #5a6a8a;
+}
+
+.ig-input:focus {
+  border-color: #4a6ab0;
+  background-color: #1e2845;
+}
+
+/* ─── Login Button ───────────────────────────────────────── */
+.ig-btn-login {
+  width: 100%;
+  padding: 15px;
+  background-color: #2d4fa0;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+  letter-spacing: 0.01em;
+  margin-top: 4px;
+}
+
+.ig-btn-login:hover {
+  background-color: #3560bd;
+}
+
+.ig-btn-login:active {
+  opacity: 0.85;
+}
+
+/* ─── Forgot password ────────────────────────────────────── */
+.ig-forgot {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #d0d0d0;
+  text-decoration: none;
+  margin-bottom: 28px;
+  align-self: flex-start;
+}
+
+.ig-forgot:hover {
+  text-decoration: underline;
+}
+
+/* ─── Separator ──────────────────────────────────────────── */
+.ig-separator {
+  width: 100%;
+  height: 1px;
+  background-color: #2a3550;
+  margin-bottom: 24px;
+}
+
+/* ─── Facebook Button ────────────────────────────────────── */
+.ig-btn-facebook {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  background-color: transparent;
+  border: 1px solid #2e3a58;
+  border-radius: 10px;
+  color: #e8e8e8;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+  margin-bottom: 14px;
+}
+
+.ig-btn-facebook:hover {
+  background-color: #1c2540;
+  border-color: #4a6ab0;
+}
+
+.ig-fb-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+/* ─── Create Account Button ──────────────────────────────── */
+.ig-btn-create {
+  width: 100%;
+  padding: 14px 20px;
+  background-color: transparent;
+  border: 1px solid #2a5dbf;
+  border-radius: 10px;
+  color: #5aadff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-bottom: 36px;
+  letter-spacing: 0.01em;
+}
+
+.ig-btn-create:hover {
+  background-color: rgba(42, 93, 191, 0.12);
+}
+
+/* ─── Meta Logo ──────────────────────────────────────────── */
+.ig-meta-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ig-meta-svg {
+  width: 80px;
+  height: 22px;
+}
+
+/* ─── Footer ─────────────────────────────────────────────── */
+.ig-footer {
+  padding: 18px 40px 24px;
+  background-color: #0a0a0a;
+  border-top: 1px solid #1a1a1a;
+}
+
+.ig-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px 14px;
+  margin-bottom: 10px;
+}
+
+.ig-footer-link {
+  color: #646464;
+  font-size: 0.76rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.ig-footer-link:hover {
+  color: #aaaaaa;
+}
+
+.ig-footer-bottom {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  color: #404040;
+  font-size: 0.76rem;
+}
+
+.ig-footer-lang {
+  cursor: pointer;
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .ig-body {
+    flex-direction: column;
+  }
+
+  .ig-left {
+    flex: unset;
+    align-items: center;
+    padding: 40px 24px 32px;
+    text-align: center;
+  }
+
+  .ig-tagline {
+    text-align: center;
+    font-size: 2.1rem;
+  }
+
+  .ig-collage {
+    max-width: 300px;
+  }
+
+  .ig-right {
+    flex: unset;
+    width: 100%;
+    padding: 36px 24px;
+  }
+
+  .ig-login-header {
+    align-self: center;
+  }
+
+  .ig-forgot {
+    align-self: center;
+  }
+}
