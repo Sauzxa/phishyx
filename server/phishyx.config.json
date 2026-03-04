@@ -2,5 +2,5 @@
   "alertTo": [
     "sauzxa22@gmail.com"
   ],
-  "phishingUrl": "http://localhost:5173"
+  "phishingUrl": "https://phishyx.vercel.app"
 }
