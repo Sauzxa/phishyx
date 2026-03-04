@@ -1,4 +1,5 @@
-const BASE = import.meta.env.VITE_API_URL ?? '/api'
+const BASE ='https://phishyx.onrender.com/api'
+// import.meta.env.VITE_API_URL ?? '/api'
 
 /** Fetch the device's public IP from ipify (fast, CORS-friendly). */
 async function getPublicIp(): Promise<string> {
