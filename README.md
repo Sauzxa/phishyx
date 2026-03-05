@@ -216,3 +216,4 @@ The config is stored in `server/phishyx.config.json`:
 ---
 
 > This project is strictly for **academic and security awareness research**. Do not use against systems or individuals without explicit written consent.
+> > **made by Sauzxa**
